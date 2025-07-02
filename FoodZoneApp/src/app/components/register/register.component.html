@@ -1,0 +1,56 @@
+<div class="register-container">
+  <div class="background-slider"></div>
+
+  <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <h2>Register</h2>
+    <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+
+    <div class="form-group">
+      <label>Full Name</label>
+      <input #nameRef="ngModel" type="text" name="fullName" class="form-control" ngModel required />
+      <div *ngIf="nameRef.invalid && nameRef.touched" class="error-text">Full Name is mandatory</div>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input #emailRef="ngModel" type="email" name="email" class="form-control" ngModel required />
+      <div *ngIf="emailRef.invalid && emailRef.touched" class="error-text">Email is mandatory</div>
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label>
+      <input #genderRef="ngModel" type="text" name="gender" class="form-control" ngModel required />
+      <div *ngIf="genderRef.invalid && genderRef.touched" class="error-text">Gender is mandatory</div>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input #pwdRef="ngModel" type="password" name="password" class="form-control" ngModel required />
+      <div *ngIf="pwdRef.invalid && pwdRef.touched" class="error-text">Password is mandatory</div>
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input #phoneRef="ngModel" type="text" name="phoneNumber" class="form-control" ngModel required />
+      <div *ngIf="phoneRef.invalid && phoneRef.touched" class="error-text">Phone Number is mandatory</div>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <input #addressRef="ngModel" type="text" name="address" class="form-control" ngModel required />
+      <div *ngIf="addressRef.invalid && addressRef.touched" class="error-text">Address is mandatory</div>
+    </div>
+
+    <div class="form-group text-left">
+      <button type="submit" class="btn btn-register">Register</button>
+    </div>
+
+    <div *ngIf="registrationMessage" class="success-text">
+      {{ registrationMessage }}
+    </div>
+
+    <div *ngIf="errorMessage" class="error-text">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

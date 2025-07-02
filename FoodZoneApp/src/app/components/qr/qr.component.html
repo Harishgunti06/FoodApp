@@ -1,0 +1,19 @@
+<div class="qr-container">
+  <!-- Logo -->
+  <img src="assets/logo.jpg" alt="Logo" class="logo" />
+
+  <!-- Main Content -->
+  <div class="confirmation-box">
+    <h2 class="confirmation-title">🎉 Your Booking is Confirmed!</h2>
+    <p class="confirmation-subtitle">Show this QR at the restaurant:</p>
+
+    <qrcode [qrdata]="qrData" [width]="200"></qrcode>
+
+    <div class="booking-info" *ngIf="bookingId || bookingdate || bookingtime || guests">
+      <p *ngIf="bookingId"><strong>Booking ID:</strong> {{ bookingId }}</p>
+      <p *ngIf="bookingdate"><strong>Date:</strong> {{ bookingdate }}</p>
+      <p *ngIf="bookingtime"><strong>Time:</strong> {{ bookingtime }}</p>
+      <p *ngIf="guests"><strong>Guests:</strong> {{ guests }}</p>
+    </div>
+  </div>
+</div>

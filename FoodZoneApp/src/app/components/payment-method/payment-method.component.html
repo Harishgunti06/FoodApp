@@ -1,0 +1,67 @@
+
+<!-- payment-method.component.html -->
+<div class="payment-container">
+  <h3>Payment Details</h3>
+  <h3>{{"$" +totalAmount }}</h3>
+
+  <div class="payment-box">
+    <!-- Card Radio -->
+    <label class="payment-radio">
+      <input type="radio" name="paymentMethod" value="card" [(ngModel)]="paymentMethod" />
+      <span class="icon-card"></span>
+      Card
+    </label>
+
+    <!-- Card Fields -->
+    <div *ngIf="paymentMethod === 'card'">
+      <div class="form-group">
+        <label>Card information</label>
+        <input type="text" placeholder="1234 1234 1234 1234" />
+        <div class="card-row">
+          <input type="text" placeholder="MM / YY" />
+          <input type="text" placeholder="CVC" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Cardholder name</label>
+        <input type="text" placeholder="Full name on card" />
+      </div>
+
+      <div class="form-group">
+        <label>Country or region</label>
+        <select>
+          <option>India</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- UPI Radio -->
+    <label class="payment-radio">
+      <input type="radio" name="paymentMethod" value="upi" [(ngModel)]="paymentMethod" />
+      <span class="icon-cashapp"></span>
+      UPI
+    </label>
+
+    <!-- UPI ID Input -->
+    <div *ngIf="paymentMethod === 'upi'" class="form-group">
+      <label>UPI ID</label>
+      <input type="text" placeholder="example@upi" />
+    </div>
+  </div>
+
+  <div class="save-info">
+    <label>
+      <input type="checkbox" />
+      Securely save my information for 1-click checkout
+    </label>
+    <p class="note">Pay faster on this site and everywhere Link is accepted.</p>
+  </div>
+
+
+  <button class="btn btn-success" (click)="placeOrder()">
+    Place Order
+  </button>
+</div>

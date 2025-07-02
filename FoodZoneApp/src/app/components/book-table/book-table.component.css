@@ -1,0 +1,103 @@
+/* Fullscreen container */
+.booking-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(2px);
+}
+
+/* Logo top left */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Form Card */
+.booking-form {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 450px;
+  width: 100%;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Heading */
+.form-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #6a1b9a;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Input fields */
+.form-control {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px 14px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+  .form-control:focus {
+    border-color: #6a1b9a;
+    box-shadow: 0 0 0 0.2rem rgba(106, 27, 154, 0.25);
+  }
+
+/* Submit Button */
+.book-btn {
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: #6a1b9a;
+  border: none;
+  color: #fff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+  .book-btn:hover {
+    background-color: #7b1fa2;
+    transform: scale(1.02);
+  }
+
+/* Error Message */
+.text-danger {
+  font-size: 0.875rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .booking-form {
+    padding: 30px 20px;
+  }
+
+  .form-heading {
+    font-size: 1.6rem;
+  }
+
+  .logo {
+    width: 60px;
+  }
+}

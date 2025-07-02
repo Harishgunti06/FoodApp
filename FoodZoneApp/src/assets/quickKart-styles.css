@@ -1,0 +1,146 @@
+body {
+    background: rgba(245,245,245,1);
+    font-family: Verdana;
+    padding:0px;
+    margin:0px;
+}
+
+.myContent{
+    padding-top:10px;
+    padding-left:70px;
+    padding-right:70px;
+}
+
+h1, h2, h3, h4, h5, h6, a, p {
+    font-family: Verdana;
+}
+
+.navbar-brand {
+    font-size: xx-large;
+}
+
+.btn {
+    background-color: rgba(220,230,242,1);
+    border: 0.5px solid rgba(149,179,215,1);
+}
+
+.btn:hover {
+    background-color: rgba(149,179,215,1);
+}
+
+.btnLogout {
+    width:42px; 
+    height:43px; 
+    background-position: center; 
+    background-repeat:no-repeat; 
+    
+}
+
+.btnAddCart {
+    width:43px; 
+    height:30px; 
+    background-position: center; 
+    background-repeat:no-repeat; 
+    
+}
+
+.btnRemoveCart {
+    width:43px; 
+    height:30px; 
+    background-position: center; 
+    background-repeat:no-repeat; 
+   
+}
+
+.btnBuy {
+    width:43px; 
+    height:30px; 
+    background-position: center; 
+    background-repeat:no-repeat; 
+}
+
+#msg {
+    font-size: small;
+    text-align: right;
+    right: 0px;
+}
+
+#msg span {
+    color: red;
+    font-weight: bold;
+}
+
+.control-label {
+    font-weight: normal;
+}
+
+.control-label:after {
+    content: " *";
+    font-weight: bold;
+    color: red;
+}
+
+dt, dl {
+    margin-bottom: 5px;
+}
+
+.title {
+    margin: 50px 0px 0px 250px;
+    padding: 10px;
+    background-color: rgba(220,230,242,1);
+    border-radius: 10px 10px 10px 10px;
+    width: 50%;
+    text-align:center;
+}
+
+.login-title {
+    margin: 50px 0px 2px 385px;
+    padding: 10px;
+    background-color: rgba(220,230,242,1);
+    border-radius: 10px 10px 10px 10px;
+    width: 36%;
+    text-align: center;
+}
+
+
+li {
+    font-size: large;
+}
+
+div.panel-heading {
+    font-size: xx-large;
+    margin: 0px;
+    padding: 10px;
+    background-color: black;
+    width:100%;
+}
+
+.home-link, .home-link:visited, .home-link:active, .home-link:focus, .home-link:link {
+    text-decoration:none;
+    color: aliceblue;
+}
+
+
+.home-link:hover {
+    text-decoration:none;
+    color:black;
+
+}
+
+.text-danger-validation {
+    color:red;
+}
+.my-header {
+    padding:0px;
+    position:absolute;
+    top:0px;
+    height:100px;
+    width:100%;
+    left:0px;
+    right:0px;
+}
+
+
+.qkinput {
+    width: 250px;
+}

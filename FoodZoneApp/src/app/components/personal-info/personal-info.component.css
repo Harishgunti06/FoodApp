@@ -1,0 +1,79 @@
+.profile-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+  /* Background image with blur */
+  .profile-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url('/assets/food.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(6px);
+    z-index: 0;
+  }
+
+/* Logo inside (above blur) */
+.logo-inside {
+  position: absolute;
+  top: 30px;
+  text-align: center;
+  z-index: 2;
+}
+
+  .logo-inside img {
+    height: 80px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+/* Profile card on top */
+.profile-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  width: 400px;
+  text-align: left;
+  font-size: 18px;
+  color: #333;
+  z-index: 2;
+}
+
+  .profile-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: darkorange;
+  }
+
+/* Back button */
+.back-button {
+  text-align: center;
+  margin-top: 20px;
+}
+
+  .back-button button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+    .back-button button:hover {
+      background-color: #cc3300;
+      transform: scale(1.05);
+    }

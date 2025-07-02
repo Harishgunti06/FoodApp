@@ -1,0 +1,43 @@
+<div class="background-container">
+  <div class="bg-slide slide1"></div>
+  <div class="bg-slide slide2"></div>
+  <div class="bg-slide slide3"></div>
+  <div class="bg-slide slide4"></div>
+  <div class="bg-slide slide5"></div>
+  <div class="bg-slide slide6"></div>
+</div>
+
+<div class="logo-inside">
+  <img src="/assets/logo.jpg" alt="Grab-A-Bite Logo" />
+</div>
+
+<div class="login-wrapper">
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="login-form">
+    <h2>Login</h2>
+    <h6>All fields are mandatory</h6>
+
+    <div class="form-group">
+      <label>User Email</label>
+      <input #emailRef="ngModel" type="email" name="email" class="form-control" ngModel required />
+      <div *ngIf="emailRef.errors && emailRef.touched" class="error-text">User Email is mandatory</div>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input #pwdRef="ngModel" type="password" name="password" class="form-control" ngModel required />
+      <div *ngIf="pwdRef.errors && pwdRef.touched" class="error-text">Password is mandatory</div>
+    </div>
+
+    <div class="form-group text-end">
+      <a routerLink="/forget-password" class="forgot-link">Forgot Password?</a>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+
+    <div *ngIf="showDiv" class="message-box">
+      {{ message }}
+    </div>
+  </form>
+</div>

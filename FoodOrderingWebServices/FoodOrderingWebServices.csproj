@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\butter-chicken.jpg" />
+    <Content Remove="wwwroot\Images\chilli chicken.jpeg" />
+    <Content Remove="wwwroot\Images\gulab-jamun.jpg" />
+    <Content Remove="wwwroot\Images\mango-lassi.jpg" />
+    <Content Remove="wwwroot\Images\spring-rolls.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodOrderingDataAccessLayer\FoodOrderingDataAccessLayer.csproj" />
+    <ProjectReference Include="..\UserService\UserService.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\butter-chicken.jpg" />
+    <None Include="wwwroot\Images\chilli chicken.jpeg" />
+    <None Include="wwwroot\Images\gulab-jamun.jpg" />
+    <None Include="wwwroot\Images\mango-lassi.jpg" />
+    <None Include="wwwroot\Images\spring-rolls.jpg" />
+  </ItemGroup>
+
+</Project>

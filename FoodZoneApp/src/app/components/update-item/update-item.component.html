@@ -1,0 +1,50 @@
+<div class="update-page">
+  <!-- Background Logo -->
+  <div class="bg-logo"></div>
+
+  <!-- Form Container -->
+  <div class="container">
+    <form #updateForm="ngForm" (ngSubmit)="updateMenuItem(menuPrice.value)">
+      <div class="form-card">
+        <h2 class="form-title">Update Menu Item</h2>
+        <p class="form-subtitle">All fields are mandatory</p>
+
+        <!-- Menu Item ID -->
+        <div class="form-group">
+          <label>Menu Item ID</label>
+          <input type="text" name="mId" class="form-control" readonly [ngModel]="menuItemId" />
+        </div>
+
+        <!-- Item Name -->
+        <div class="form-group">
+          <label>Item Name</label>
+          <input type="text" name="iName" class="form-control" readonly [(ngModel)]="ItemName" />
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+          <label>Price</label>
+          <input type="number"
+                 name="price"
+                 #menuPrice="ngModel"
+                 class="form-control"
+                 required
+                 ngModel
+                 [(ngModel)]="Price"
+                 min="0" step="0.01" />
+          <div *ngIf="menuPrice.errors && (menuPrice.dirty || menuPrice.touched)" class="form-error">
+            <div *ngIf="menuPrice.errors['required']">Please enter price.</div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" [disabled]="!updateForm.form.valid">
+            ✅ Update
+          </button>
+          <a routerLink="/manage-menu" class="btn btn-secondary">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

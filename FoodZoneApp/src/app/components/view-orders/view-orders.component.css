@@ -1,0 +1,96 @@
+/* Make the container fill the screen and hold position */
+.container {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 50px;
+  z-index: 1;
+}
+
+  /* Add the blurred background image */
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/food.jpg') no-repeat center center / cover;
+    opacity: 0.6;
+    filter: blur(8px);
+    z-index: -1;
+  }
+
+/* Stylish header */
+h2.text-primary {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px #000;
+}
+
+/* Polished table */
+.table {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+  /* Tweak header row */
+  .table thead {
+    background-color: #343a40;
+    color: #fff;
+  }
+
+/* No orders message */
+.alert-info {
+  background-color: rgba(204, 255, 255, 0.75);
+  border: 1px solid #a3e6ff;
+  color: #003f5c;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Back Button */
+.btn-secondary {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+  .btn-secondary:hover {
+    background-color: darkred;
+    transform: scale(1.02);
+  }
+
+/* Rating stars styles */
+.rating-stars {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.fa-star {
+  font-size: 1.4rem;
+  margin-right: 5px;
+  transition: transform 0.2s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.active-star {
+  color: gold;
+}
+
+.inactive-star {
+  color: #ccc;
+}
+
+.fa-star:hover {
+  transform: scale(1.2);
+  color: orange !important;
+}

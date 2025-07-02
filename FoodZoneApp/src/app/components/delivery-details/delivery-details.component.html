@@ -1,0 +1,103 @@
+<form #deliveryForm="ngForm" (ngSubmit)="onSubmit(deliveryForm)" novalidate>
+  <div class="container my-5">
+    <div class="row g-4">
+
+      <!-- Delivery Info -->
+      <div class="col-md-8">
+        <div class="card p-4 shadow-sm">
+          <h3 class="mb-4">🚚 Delivery Information</h3>
+          <div class="row g-3">
+
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="First Name" name="firstName"
+                     ngModel required autocomplete="given-name" #firstName="ngModel">
+              <div *ngIf="firstName.invalid && firstName.touched" class="text-danger small">
+                First name is required.
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Second Name" name="secondName"
+                     ngModel required autocomplete="family-name" #secondName="ngModel">
+              <div *ngIf="secondName.invalid && secondName.touched" class="text-danger small">
+                Second name is required.
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <input type="email" class="form-control" placeholder="Email" name="email"
+                     ngModel required autocomplete="email" #email="ngModel">
+              <div *ngIf="email.invalid && email.touched" class="text-danger small">
+                Valid email is required.
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" placeholder="Street" name="street"
+                     ngModel required autocomplete="address-line1" #street="ngModel">
+              <div *ngIf="street.invalid && street.touched" class="text-danger small">
+                Street is required.
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="City" name="city"
+                     ngModel required autocomplete="address-level2" #city="ngModel">
+              <div *ngIf="city.invalid && city.touched" class="text-danger small">
+                City is required.
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="State" name="state"
+                     ngModel required autocomplete="address-level1" #state="ngModel">
+              <div *ngIf="state.invalid && state.touched" class="text-danger small">
+                State is required.
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Zip Code" name="zip"
+                     ngModel required autocomplete="postal-code" #zip="ngModel">
+              <div *ngIf="zip.invalid && zip.touched" class="text-danger small">
+                Zip code is required.
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Country" name="country"
+                     ngModel required autocomplete="country-name" #country="ngModel">
+              <div *ngIf="country.invalid && country.touched" class="text-danger small">
+                Country is required.
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <input type="tel" class="form-control" placeholder="Phone" name="phone"
+                     ngModel required pattern="^[0-9]{10}$" autocomplete="tel" #phone="ngModel">
+              <div *ngIf="phone.invalid && phone.touched" class="text-danger small">
+                Enter a valid 10-digit phone number.
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Totals -->
+      <div class="col-md-4">
+        <div class="card p-4 shadow-sm bg-light">
+          <h4 class="mb-3">🧾 Cart Totals</h4>
+          <p class="mb-2">Subtotal: <strong>₹{{ subtotal }}</strong></p>
+          <p class="mb-2">Delivery Fee: <strong>₹{{ deliveryFee }}</strong></p>
+          <hr>
+          <p class="fs-5 fw-bold">Total: ₹{{ subtotal + deliveryFee }}</p>
+          <button class="btn btn-danger w-100 mt-3" type="submit" [disabled]="!deliveryForm.valid">
+            PROCEED TO PAYMENT
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>

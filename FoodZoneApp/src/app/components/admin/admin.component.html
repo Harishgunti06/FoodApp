@@ -1,0 +1,30 @@
+<div class="admin-container"
+     [ngStyle]="{
+    'background-image': 'url(assets/admin-image/6.jpg)',
+    'background-size': 'cover',
+    'background-position': 'center',
+    'background-repeat': 'no-repeat',
+    'background-attachment': 'fixed'
+  }">
+
+  <!-- Logo -->
+  <img src="assets/logo.jpg" alt="Logo" class="admin-logo">
+
+  <div class="admin-main">
+    <h1 class="fade-in">Admin Dashboard</h1>
+
+    <div class="nav-buttons">
+      <a routerLink="/profile" class="nav-link slide-in">Profile</a>
+      <a routerLink="/manage-menu" class="nav-link slide-in delay">Manage Menu</a>
+      <a routerLink="/booking" class="nav-link slide-in delay">View Booking</a>
+      <button class="logout-button slide-in delay-more" (click)="logout()">Logout</button>
+    </div>
+
+    <div class="welcome-box fade-in">
+      Welcome to the Food Ordering Admin Dashboard
+    </div>
+    <div class="info-box fade-in-delay">
+      This admin dashboard allows you to manage the restaurant’s menu, view customer profiles, and handle order operations efficiently.
+    </div>
+  </div>
+</div>

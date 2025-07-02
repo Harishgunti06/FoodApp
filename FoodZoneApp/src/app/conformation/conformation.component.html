@@ -1,0 +1,38 @@
+<div class="booking-container">
+  <div class="overlay">
+    <h2 class="booking-title">📋 Booking List</h2>
+
+    <table class="table booking-table table-hover">
+      <thead class="table-header">
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Email</th>
+          <th>Guests</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of booking">
+          <td>{{ booking.bookingDate | date }}</td>
+          <td>{{ booking.bookingTime }}</td>
+          <td>{{ booking.email }}</td>
+          <td>{{ booking.guests }}</td>
+          <td>
+            <span [class.badge-success]="booking.checkedIn" [class.badge-danger]="!booking.checkedIn" class="badge">
+              {{ booking.checkedIn ? 'Checked In' : 'Pending' }}
+            </span>
+          </td>
+          <td>
+            <button class="btn btn-sm checkin-btn"
+                    [disabled]="booking.checkedIn"
+                    (click)="checkIn(booking.bookingId)">
+              ✅ Check-In
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

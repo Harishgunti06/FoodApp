@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+  /* Background with dark overlay */
+  .profile-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/images/pexels-edwardeyer-1049626.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: 0;
+    opacity: 1;
+  }
+
+/* Logo at the top */
+.logo-inside {
+  position: absolute;
+  top: 25px;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: slideDown 1s ease-out;
+}
+
+  .logo-inside img {
+    height: 80px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+  }
+
+    .logo-inside img:hover {
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+/* Profile Card */
+.profile-card {
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.65); /* More contrast */
+  padding: 35px 40px;
+  border-radius: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  width: 420px;
+  max-width: 90%;
+  text-align: left;
+  color: #fff;
+  animation: fadeIn 1.3s ease;
+}
+
+  .profile-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #ffcc00;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  }
+
+/* Profile Info Styling */
+.profile-info p {
+  margin: 12px 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #f1f1f1;
+  text-shadow: 0 0 2px rgba(0,0,0,0.7);
+}
+
+.profile-info span {
+  color: #ffd700;
+  font-weight: 600;
+  text-shadow: 0 0 3px rgba(0,0,0,0.7);
+}
+
+/* Back Button */
+.back-button {
+  text-align: center;
+  margin-top: 25px;
+}
+
+  .back-button button {
+    background: linear-gradient(to right, #ff6600, #ffaa00);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    transition: background 0.4s, transform 0.2s;
+  }
+
+    .back-button button:hover {
+      background: linear-gradient(to right, #cc3300, #ff6600);
+      transform: scale(1.05);
+    }
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .profile-card {
+    padding: 25px;
+    font-size: 15px;
+  }
+
+    .profile-card h2 {
+      font-size: 22px;
+    }
+
+  .logo-inside img {
+    height: 60px;
+  }
+
+  .back-button button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

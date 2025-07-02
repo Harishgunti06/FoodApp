@@ -1,0 +1,21 @@
+<div class="profile-container">
+  <div class="logo-inside">
+    <img src="/assets/logo.jpg" alt="App Logo" />
+  </div>
+
+  <div class="profile-card">
+    <h2>User Profile</h2>
+
+    <div class="profile-info">
+      <p><span>Name:</span> {{ user?.fullName }}</p>
+      <p><span>Email:</span> {{ user?.email }}</p>
+      <p><span>Gender:</span> {{ user?.gender }}</p>
+      <p><span>Phone:</span> {{ user?.phoneNumber }}</p>
+      <p><span>Address:</span> {{ user?.address }}</p>
+    </div>
+
+    <div class="back-button">
+      <button routerLink="/admin">← Back to Admin</button>
+    </div>
+  </div>
+</div>

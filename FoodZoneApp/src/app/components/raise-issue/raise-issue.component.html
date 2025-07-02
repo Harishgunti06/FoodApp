@@ -1,0 +1,62 @@
+<div class="container">
+  <img src="assets/logo.jpg" alt="Logo" class="logo">
+  <form #IssueForm="ngForm" (ngSubmit)="raiseIssue(IssueForm)">
+    <div class="mb-4 text-center">
+      <h2 class="fw-bold">Raise a Problem</h2>
+      <small class="text-muted">All fields are mandatory</small>
+    </div>
+
+    <!-- Order Item ID -->
+    <div class="mb-3">
+      <label for="orderItemId" class="form-label">Order ID</label>
+      <input id="orderItemId"
+             name="Id"
+             type="text"
+             class="form-control"
+             ngModel
+             #idRef="ngModel"
+             required
+             placeholder="Enter Order Item ID" />
+      <div *ngIf="idRef.invalid && idRef.touched" class="text-danger mt-1">
+        Order ID is mandatory.
+      </div>
+    </div>
+
+    <!-- Item Name -->
+    <div class="mb-3">
+      <label for="itemName" class="form-label">Item Name</label>
+      <input id="itemName"
+             name="name"
+             type="text"
+             class="form-control"
+             ngModel
+             #nameRef="ngModel"
+             required
+             placeholder="Enter Item Name" />
+      <div *ngIf="nameRef.invalid && nameRef.touched" class="text-danger mt-1">
+        Item Name is mandatory.
+      </div>
+    </div>
+
+    <!-- Issue Description -->
+    <div class="mb-4">
+      <label for="issueDesc" class="form-label">Issue Description</label>
+      <textarea id="issueDesc"
+                name="description"
+                class="form-control"
+                rows="4"
+                ngModel
+                placeholder="Describe the issue in detail..."></textarea>
+    </div>
+
+
+    <!-- Submit Button -->
+    <div class="d-grid">
+      <button type="submit" class="btn" style="background-color: #6a1b9a; color: white;">
+        Raise Issue
+      </button>
+      <br />
+      <button class="btn btn-secondary mb-3" (click)="goBack()">← Back</button>
+    </div>
+  </form>
+</div>

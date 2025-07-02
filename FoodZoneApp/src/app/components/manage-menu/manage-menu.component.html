@@ -1,0 +1,78 @@
+<div class="admin-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo-inside">
+      <img src="/assets/logo.jpg" alt="Grab-A-Bite Logo" />
+    </div>
+    <div class="brand">Grab-A-Bite</div>
+    <ul class="sidebar-menu">
+      <li><a routerLink="/profile">👤 Profile</a></li>
+      <li><a routerLink="/admin">← Back to Admin</a></li>
+    </ul>
+    <button class="logout-button" (click)="logout()">🔒 Logout</button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content admin-overlay">
+    <h1 class="title">🍽️ Menu Items List</h1>
+
+    <div class="search-filter-row">
+      <div class="search-box">
+        <label>Search:</label>
+        <input type="search"
+               placeholder="Search Item Name..."
+               #itemsSearch
+               (change)="searchItemsByName(itemsSearch.value)" />
+      </div>
+
+      <div class="category-dropdown">
+        <label>Category:</label>
+        <select #categoryDropdown (change)="searchItemsByCategory(categoryDropdown.value)">
+          <option value="">All</option>
+          <option *ngFor="let category of categories" [value]="category.categoryId">
+            {{ category.categoryName }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="add-button-wrapper">
+      <a routerLink="/add-menu-item" class="add-button">
+        <span>➕</span> Add New Item
+      </a>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table" *ngIf="filteredMenuItems.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th colspan="2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredMenuItems">
+            <td>{{ item.menuItemId }}</td>
+            <td><span class="category-badge">{{ item.categoryName }}</span></td>
+            <td>
+              <img *ngIf="item.imageUrl" [src]="'http://localhost:5214' + item.imageUrl"
+                   alt="{{ item.itemName }}" class="menu-image" />
+            </td>
+            <td>{{ item.itemName }}</td>
+            <td>₹{{ item.price }}</td>
+            <td>
+              <button class="action-button update" (click)="UpdateMenuItem(item)">✏️ Update</button>
+            </td>
+            <td>
+              <button class="action-button delete" (click)="DeleteMenuItem(item)">🗑️ Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>

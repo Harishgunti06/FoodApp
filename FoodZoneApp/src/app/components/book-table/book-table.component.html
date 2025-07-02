@@ -1,0 +1,79 @@
+<div class="booking-container"
+     [ngStyle]="{
+        'background-image': 'url(assets/images/pexels-ella-olsson-572949-1640772.jpg)',
+        'background-size': 'cover',
+        'background-position': 'center',
+        'background-repeat': 'no-repeat'
+     }">
+
+  <!-- Logo -->
+  <img src="assets/logo.jpg" alt="Logo" class="logo">
+
+  <!-- Booking Form -->
+  <form #bookingForm="ngForm" (ngSubmit)="submitBooking(bookingForm)" class="booking-form shadow-lg">
+    <div class="mb-4 text-center">
+      <h2 class="form-heading">🍽️ Book a Table</h2>
+      <small class="text-muted">All fields are mandatory</small>
+    </div>
+
+    <!-- Date -->
+    <div class="mb-3">
+      <label for="bookingDate" class="form-label">📅 Date</label>
+      <input id="bookingDate"
+             name="bookingDate"
+             type="date"
+             class="form-control"
+             required
+             ngModel
+             [(ngModel)]="booking.bookingDate"
+             #dateRef="ngModel" />
+      <div *ngIf="dateRef.invalid && dateRef.touched" class="text-danger mt-1">
+        Date is required.
+      </div>
+    </div>
+
+    <!-- Time Slot -->
+    <div class="mb-3">
+      <label for="bookingTime" class="form-label">🕒 Time Slot</label>
+      <select id="bookingTime"
+              name="bookingTime"
+              class="form-control"
+              required
+              ngModel
+              [(ngModel)]="booking.bookingTime"
+              #timeRef="ngModel">
+        <option value="" disabled selected>Select a time</option>
+        <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
+      </select>
+      <div *ngIf="timeRef.invalid && timeRef.touched" class="text-danger mt-1">
+        Time slot is required.
+      </div>
+    </div>
+
+    <!-- Number of Guests -->
+    <div class="mb-4">
+      <label for="guests" class="form-label">👥 Number of Guests</label>
+      <input id="guests"
+             name="guests"
+             type="number"
+             class="form-control"
+             required
+             min="1"
+             max="20"
+             ngModel
+             [(ngModel)]="booking.guests"
+             #guestsRef="ngModel"
+             placeholder="Enter number of guests" />
+      <div *ngIf="guestsRef.invalid && guestsRef.touched" class="text-danger mt-1">
+        Please enter 1 to 20 guests.
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="d-grid">
+      <button type="submit" class="btn book-btn" [disabled]="bookingForm.invalid">
+        ✅ Book Now
+      </button>
+    </div>
+  </form>
+</div>

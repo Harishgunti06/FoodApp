@@ -1,0 +1,115 @@
+.booking-container {
+  background-image: url('/assets/images/pexels-ella-olsson-572949-1640772.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding: 50px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.92);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1100px;
+  animation: fadeInUp 0.7s ease-in-out;
+}
+
+.booking-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.booking-table {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.table-header {
+  background-color: #ff7043;
+  color: white;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.badge-success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.badge-danger {
+  background-color: #f44336;
+  color: white;
+}
+
+.checkin-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  transition: transform 0.2s ease;
+}
+
+  .checkin-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Animated title styling */
+.booking-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff5722;
+  font-family: 'Segoe UI', sans-serif;
+  margin-bottom: 30px;
+  animation: fadeSlideIn 1s ease-out, glowPulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+/* Slide and fade in effect */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glowing pulse effect */
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 8px #ff5722, 0 0 15px #ffab91;
+  }
+
+  50% {
+    text-shadow: 0 0 15px #ff5722, 0 0 30px #ffccbc;
+  }
+}

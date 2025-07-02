@@ -1,0 +1,162 @@
+/* Base setup */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Container with full-page background */
+.myContent.container {
+  position: relative;
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Blurred background image */
+.myContent::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: url('/assets/food.jpg') no-repeat center center / cover;
+  filter: blur(8px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Top-left logo */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  height: 60px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+/* Responsive table */
+.table-responsive {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Table appearance */
+.table {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+  /* Table headers */
+  .table thead {
+    background: #6a1b9a;
+    color: #fff;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+  }
+
+  .table th,
+  .table td {
+    vertical-align: middle !important;
+    padding: 12px 16px;
+    color: #2c003e;
+    font-size: 1rem;
+  }
+
+/* Hover effect */
+.table-hover tbody tr:hover {
+  background-color: rgba(106, 27, 154, 0.08);
+  transition: background-color 0.3s ease;
+}
+
+/* Quantity input */
+input[type="number"].form-control {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  transition: border-color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+  input[type="number"].form-control:focus {
+    border-color: #6a1b9a;
+    box-shadow: 0 0 5px rgba(106, 27, 154, 0.3);
+  }
+
+/* Add to Cart button */
+button.btn-success {
+  background-color: #6a1b9a;
+  border: none;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(106, 27, 154, 0.3);
+}
+
+  button.btn-success:hover {
+    background-color: #4a0e6d;
+  }
+
+/* Info message */
+.alert-info {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 15px 20px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Adds gap between buttons */
+  margin-top: 20px;
+}
+
+  .button-group button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+
+
+.btn-primary {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+  .btn-primary:hover {
+    background-color: #4a0e6d;
+    transform: scale(1.02);
+  }
+
+.btn-secondary {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 8px 16px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+  .btn-secondary:hover {
+    background-color: crimson;
+    transform: scale(1.02);
+  }

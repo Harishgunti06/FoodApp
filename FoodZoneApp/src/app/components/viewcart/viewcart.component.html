@@ -1,0 +1,50 @@
+<div class="container">
+  <img src="assets/logo.jpg" alt="Logo" class="logo">
+  <h3 class="text-center mb-4">Your Cart</h3>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover text-center shadow-sm"
+           *ngIf="cartItems && cartItems.length > 0">
+      <thead class="thead-light bg-primary text-white">
+        <tr>
+          <th>Menu ItemId</th>
+          <th>Item Name</th>
+          <th>Quantity</th>
+          <th>Price (₹)</th>
+          <th>Total (₹)</th>
+          <th>Remove Cart</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{item.menuItemId}}</td>
+          <td>{{ item.itemName }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.quantity * item.price }}</td>
+          <td>
+            <button (click)="removeFromCart(item.menuItemId)">Remove</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div *ngIf="cartItems.length === 0" class="alert alert-info text-center">
+      Your cart is empty.
+    </div>
+
+  </div>
+
+  <!-- Cart Summary -->
+  <div class="text-end mt-3" *ngIf="cartItems.length > 0">
+    <h5>Total: {{ getTotal() | currency:'INR':'symbol-narrow' }}</h5>
+
+  </div>
+  <button class="btn btn-success" (click)="goToDeliveryDetails(cartItems)">
+    Proceed to Delivery
+  </button>
+  <br />
+  <button class="btn btn-secondary mb-3" (click)="goBack()">← Back</button>
+
+</div>

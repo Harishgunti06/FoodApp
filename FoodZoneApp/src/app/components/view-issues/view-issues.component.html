@@ -1,0 +1,45 @@
+<div class="support-container">
+  <aside class="sidebar">
+    <div class="logo-box">
+      <img src="/assets/logo.jpg" alt="Grab-A-Bite Logo" />
+      <h2 class="brand">Grab-A-Bite</h2>
+    </div>
+    <nav class="sidebar-menu">
+      <a routerLink="/profile" routerLinkActive="active">👤 Profile</a>
+      <a routerLink="/view-issues" routerLinkActive="active">📄 View Issues</a>
+    </nav>
+    <button class="logout-button" (click)="logout()">Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <div class="overlay-card">
+      <h1 class="page-title">📋 Issues Dashboard</h1>
+      <button class="back-btn" (click)="goBack()">← Back</button>
+
+      <div class="table-responsive" *ngIf="filteredIssues.length > 0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer Email</th>
+              <th>Issue Description</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let issue of filteredIssues">
+              <td>{{ issue.orderItemId }}</td>
+              <td>{{ issue.email }}</td>
+              <td>{{ issue.issueDescription }}</td>
+              <td><span class="badge">{{ issue.issueStatus }}</span></td>
+              <td>
+                <button class="action-btn" (click)="UpdateIssue(issue)">Update</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>

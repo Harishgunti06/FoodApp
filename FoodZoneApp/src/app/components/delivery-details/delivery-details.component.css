@@ -1,0 +1,21 @@
+.card {
+  border-radius: 1rem;
+}
+
+input.form-control {
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.btn-danger {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+  .btn-danger:hover {
+    background-color: #c0392b;
+  }

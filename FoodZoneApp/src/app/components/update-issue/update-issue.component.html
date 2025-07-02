@@ -1,0 +1,73 @@
+<div class="update-container">
+  <div class="overlay">
+    <form #updateForm="ngForm" (ngSubmit)="updateIssueStatus(issueStatus.value, emailsent.value)">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="card form-glass p-4 shadow-lg rounded-4">
+            <div class="card-body">
+
+              <h2 class="text-center text-warning fw-bold mb-2">Update Issue Status</h2>
+              <p class="text-center text-light small mb-4">All fields are mandatory</p>
+
+              <!-- Issue ID -->
+              <div class="mb-3">
+                <label class="form-label text-white fw-semibold">Issue ID</label>
+                <input type="text" name="iId" class="form-control text-center" readonly [ngModel]="issueId">
+              </div>
+
+              <!-- Order Item ID -->
+              <div class="mb-3">
+                <label class="form-label text-white fw-semibold">Order Item ID</label>
+                <input type="text" name="oId" class="form-control text-center" readonly [(ngModel)]="orderItemId">
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label class="form-label text-white fw-semibold">Email</label>
+                <input #emailsent="ngModel" type="text" name="email" class="form-control text-center" readonly [(ngModel)]="email">
+              </div>
+
+              <!-- Issue Description -->
+              <div class="mb-3">
+                <label class="form-label text-white fw-semibold">Issue Description</label>
+                <input type="text" name="iDesc" class="form-control text-center" readonly [(ngModel)]="issueDescription">
+              </div>
+
+              <!-- Issue Status -->
+              <div class="mb-4">
+                <label class="form-label text-white fw-semibold">Issue Status</label>
+                <select name="iStatus"
+                        #issueStatus="ngModel"
+                        class="form-select text-center"
+                        required ngModel
+                        [(ngModel)]="Status">
+                  <option value="" disabled selected>Select status</option>
+                  <option value="Open">Open</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Resolved">Resolved</option>
+                  <option value="Closed">Closed</option>
+                </select>
+                <div *ngIf="issueStatus.errors && (issueStatus.dirty || issueStatus.touched)" class="text-danger text-center small mt-1">
+                  <div *ngIf="issueStatus.errors['required']">
+                    Please select the status.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Buttons -->
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-warning px-4 me-3 fw-semibold" [disabled]="!updateForm.form.valid">
+                  ✅ Update
+                </button>
+                <a routerLink="/view-issues" class="btn btn-outline-light px-4 fw-semibold">
+                  ❌ Cancel
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

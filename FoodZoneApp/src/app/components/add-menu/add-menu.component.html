@@ -1,0 +1,98 @@
+<div class="admin-container">
+  <!-- Sidebar or logo section -->
+  <div class="sidebar">
+    <div class="logo-inside">
+      <img src="/assets/logo.jpg" alt="App Logo" />
+    </div>
+    <div class="sidebar-menu">
+      <a routerLink="/admin" class="back-link">← Back to Admin</a>
+    </div>
+  </div>
+
+  <!-- Main content area -->
+  <div class="admin-overlay">
+    <div class="main-content">
+      <h2 class="menu-title">🍽️ Add New Menu Item</h2>
+
+      <form #menuForm="ngForm" (ngSubmit)="addMenuItem(menuForm)" class="form-wrapper">
+        <!-- Category Dropdown -->
+        <div class="form-row">
+          <label for="category">Category</label>
+          <select id="category"
+                  name="categoryId"
+                  class="styled-input"
+                  required
+                  [(ngModel)]="menuItem.categoryId">
+            <option [value]=-1>-- Select Category --</option>
+            <option *ngFor="let category of categories" [value]="category.categoryId">
+              {{ category.categoryName }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Item Name -->
+        <div class="form-row">
+          <label for="itemName">Item Name</label>
+          <input type="text"
+                 id="itemName"
+                 name="itemName"
+                 placeholder="Enter Name"
+                 class="styled-input"
+                 [(ngModel)]="menuItem.itemName"
+                 required />
+        </div>
+
+        <!-- Price -->
+        <div class="form-row">
+          <label for="price">Price</label>
+          <input type="number"
+                 id="price"
+                 name="price"
+                 class="styled-input"
+                 [(ngModel)]="menuItem.price"
+                 required />
+        </div>
+        <div class="form-row">
+          <label>Is Vegetarian</label><br>
+          <div>
+            <input type="radio" id="vegYes" name="isVegetarian" [(ngModel)]="menuItem.isVegetarian" [value]="true" required />
+            <label for="vegYes">Yes</label>
+
+            <input type="radio" id="vegNo" name="isVegetarian" [(ngModel)]="menuItem.isVegetarian" [value]="false" />
+            <label for="vegNo">No</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="cuisine">Cuisine</label>
+          <select id="cuisine"
+                  name="cuisineId"
+                  class="styled-input"
+                  required
+                  [(ngModel)]="menuItem.cuisineId">
+            <option [value]=-1>-- Select Cuisine --</option>
+            <option [value]="1">Indian</option>
+            <option [value]="0">Chinese</option>
+          </select>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="form-row">
+          <label for="imageFile">Select Image</label>
+          <input type="file"
+                 id="imageFile"
+                 name="imageFile"
+                 class="styled-input"
+                 (change)="onFileSelected($event)"
+                 accept="image/*"
+                 required />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-row center">
+          <button type="submit" class="add-button">➕ Add Menu Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<p>
+  <h2>Scan Customer Booking QR</h2>
+
+  <div class="container mt-4 text-center">
+    <h3>Scan Booking QR</h3>
+
+  </div>
+
+
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+    {{ errorMessage }}
+  </div>

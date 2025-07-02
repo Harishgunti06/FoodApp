@@ -1,0 +1,216 @@
+/* Full layout */
+.support-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: url('/assets/images/pexels-brettjordan-825661.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 15px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.logo-box {
+  text-align: center;
+}
+
+  .logo-box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  }
+
+.brand {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-top: 5px;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.sidebar-menu {
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+  .sidebar-menu a {
+    text-decoration: none;
+    color: #f0f0f0;
+    padding: 10px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+    .sidebar-menu a:hover,
+    .sidebar-menu a.active {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
+.logout-button {
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 10px rgba(255, 77, 77, 0.4);
+}
+
+  .logout-button:hover {
+    background-color: #e60000;
+    transform: scale(1.05);
+  }
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Frosted glass overlay */
+.overlay-card {
+  width: 100%;
+  max-width: 1100px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+/* Title and back */
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  color: #ffe56b;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.back-btn {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+  .back-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+  }
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #222;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table thead {
+    background-color: #f4f4f4;
+  }
+
+  .table tr:hover {
+    background-color: #f9f9f9;
+  }
+
+/* Action buttons */
+.action-btn {
+  background-color: #ffa500;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+  .action-btn:hover {
+    background-color: #e69500;
+    transform: scale(1.05);
+  }
+
+/* Status badge */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .support-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .overlay-card {
+    padding: 20px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 14px;
+  }
+}

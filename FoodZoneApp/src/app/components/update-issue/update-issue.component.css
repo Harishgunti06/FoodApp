@@ -1,0 +1,84 @@
+/* Background full screen */
+.update-container {
+  min-height: 100vh;
+  background: url('/assets/images/pexels-brettjordan-825661.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Frosted glass overlay */
+.overlay {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Card inside the glass */
+.form-glass {
+  background-color: rgba(255, 255, 255, 0.07);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+  .form-control:read-only {
+    background-color: #ececec;
+    cursor: not-allowed;
+    font-style: italic;
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #ffc107;
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.4);
+  }
+
+/* Buttons */
+.btn-warning {
+  background-color: #ffc107;
+  border: none;
+  color: #212529;
+  transition: 0.3s ease;
+}
+
+  .btn-warning:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+  }
+
+.btn-outline-light:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 14px;
+  }
+}

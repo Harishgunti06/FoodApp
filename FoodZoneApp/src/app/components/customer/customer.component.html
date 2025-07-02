@@ -1,0 +1,99 @@
+<div class="full-layout">
+  <!-- Sidebar -->
+  <aside class="side-menu">
+    <img src="assets/logo.jpg" alt="Logo" class="logo" />
+    <ul>
+      <li><a routerLink="/user-info">Personal Info</a></li>
+      <li><a routerLink="/view-orders">View Orders</a></li>
+      <li><a routerLink="/raise-issue">Raise an Issue</a></li>
+      <li><a routerLink="/view-cart">View Cart</a></li>
+      <li><a routerLink="/book-table">Book Table</a></li>
+    </ul>
+    <button class="logout-button mt-auto" (click)="logout()">Logout</button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Filter Button -->
+    <div class="top-right-filters">
+      <button class="filters-toggle-btn" (click)="showFilters = !showFilters">🔍 Filters</button>
+
+      <div *ngIf="showFilters" class="filter-section">
+        <h5>Filter Menu Items</h5>
+
+        <div>
+          <strong>Cuisine:</strong><br />
+          <div *ngFor="let cuisine of cuisines">
+            <input type="checkbox" [(ngModel)]="cuisine.selected" /> {{ cuisine.cuisineName }}
+          </div>
+        </div>
+
+        <div class="mt-2">
+          <strong>Dish Type:</strong><br />
+          <input type="radio" name="veg" [(ngModel)]="filter.isVegetarian" [value]="true" /> Veg
+          <input type="radio" name="veg" [(ngModel)]="filter.isVegetarian" [value]="false" /> Non-Veg
+        </div>
+
+        <div class="mt-2">
+          <strong>Price Range:</strong><br />
+          <input type="number" class="form-control mb-1" [(ngModel)]="filter.minPrice" placeholder="Min Price" />
+          <input type="number" class="form-control" [(ngModel)]="filter.maxPrice" placeholder="Max Price" />
+        </div>
+
+        <div class="mt-3 filter-buttons">
+          <button class="btn-apply" (click)="applyFilters()">✅ Apply Filters</button>
+          <button class="btn-clear" (click)="clearFilters()">❌ Clear Filters</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome / Categories -->
+    <div *ngIf="!filteredMenuItems || filteredMenuItems.length === 0" class="intro-section">
+      <h1 class="main-heading">Welcome to Our Food World</h1>
+      <p class="subtext">Discover a wide variety of delicious and fresh foods that satisfy every craving.</p>
+
+      <h2 class="category-title">Food Categories</h2>
+      <div class="category-grid">
+        <div *ngFor="let category of foodCategories" class="category-card">
+          <img [src]="categoryImages[category.categoryName]" alt="{{ category.categoryName }}" class="category-img" />
+          <p class="category-name">{{ category.categoryName }}</p>
+          <button (click)="getProductsByCategoryId(category.categoryId)">View {{ category.categoryName }}</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Items Table -->
+    <div *ngIf="filteredMenuItems && filteredMenuItems.length > 0" class="menu-table mt-4">
+      <table class="table table-bordered table-hover text-center">
+        <thead class="thead-light">
+          <tr>
+            <th>Image</th>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Rating</th>
+            <th>Add to Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredMenuItems">
+            <td>
+              <img [src]="'http://localhost:5214' + item.imageUrl" alt="{{ item.itemName }}"
+                   class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
+            </td>
+            <td>{{ item.itemName }}</td>
+            <td>₹{{ item.price }}</td>
+            <td><input type="number" min="1" [(ngModel)]="quantityMap[item.menuItemId]" class="form-control" /></td>
+            <td>{{ ratingsMap[item.menuItemId] ? (ratingsMap[item.menuItemId] | number: '1.1-1') : 'No Ratings' }}</td>
+            <td><button class="btn-success" (click)="addItemToCart(item, quantityMap[item.menuItemId])">Add</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="button-group mt-3">
+        <button class="btn-view-cart" (click)="goToCart()">🛒 View Cart</button>
+        <button class="btn-back" (click)="clearFilters()">← Back</button>
+      </div>
+    </div>
+  </main>
+</div>
